@@ -49,7 +49,7 @@ def analyze_text(text):
 
 # First Page (Text Input)
 if not st.session_state.submitted:
-    st.title("🔍 Enter Your Text Below")
+    st.title(" Enter Your Text Below")
     
     # Text input box
     user_input = st.text_area("Enter your paragraph:", value=st.session_state.user_input, height=250)
@@ -71,35 +71,35 @@ if not st.session_state.submitted:
 
 # Second Page (Analysis Page)
 else:
-    st.title("📊 Text Analysis")
+    st.title("Text Analysis")
 
     # Get the analysis data
     char_count, word_count, sentence_count, single_word_repeated, double_word_repeated, triple_word_repeated = analyze_text(st.session_state.user_input)
     
     # Display results
-    st.write(f"📌 *Total Characters:* {char_count}")
-    st.write(f"📌 *Total Words:* {word_count}")
-    st.write(f"📌 *Total Sentences:* {sentence_count}")
+    st.write(f" *Total Characters:* {char_count}")
+    st.write(f" *Total Words:* {word_count}")
+    st.write(f" *Total Sentences:* {sentence_count}")
 
-    st.subheader("🔄 Repeated Single Words")
+    st.subheader("Repeated Single Words")
     if single_word_repeated:
         st.json(single_word_repeated)
     else:
-        st.write("✅ No single word repeated.")
+        st.write("No single word repeated.")
 
-    st.subheader("🔄 Repeated Double Words")
+    st.subheader("Repeated Double Words")
     if double_word_repeated:
         st.json(double_word_repeated)
     else:
-        st.write("✅ No double words repeated.")
+        st.write("No double words repeated.")
 
-    st.subheader("🔄 Repeated Triple Words")
+    st.subheader("Repeated Triple Words")
     if triple_word_repeated:
         st.json(triple_word_repeated)
     else:
-        st.write("✅ No triple words repeated.")
+        st.write("No triple words repeated.")
 
     # Back Button
-    if st.button("🔙 Go Back"):
+    if st.button("Go Back"):
         st.session_state.submitted = False
         st.rerun()
